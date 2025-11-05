@@ -104,9 +104,9 @@ const ContactPage = () => {
       animate={{ y: "0%" }}
       transition={{ duration: 1 }}
     >
-      <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
+      <div className="min-h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 py-8 lg:py-0">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-full lg:w-1/2 flex items-center justify-center text-6xl">
+        <div className="min-h-[30vh] lg:h-full lg:w-1/2 flex items-center justify-center text-6xl flex-shrink-0">
           <div>
             {text.split("").map((letter, index) => (
               <motion.span
@@ -129,7 +129,7 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-12 md:p-24"
+          className="min-h-[50vh] lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-8 md:p-12 lg:p-24 overflow-y-auto"
         >
           {/* <input type="hidden" name="name" value="Portfolio Visitor" /> */}
           <span>Dear Songtao Dev,</span>
