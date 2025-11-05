@@ -39,6 +39,7 @@ const AboutPage = () => {
             />
             {/* BIOGRAPHY TITLE */}
             <h1 className="font-bold text-2xl">My Values</h1>
+            {/* ss */}
             {/* BIOGRAPHY DESC - REDESIGNED */}
             <div className="flex flex-col gap-4">
               {/* Quality */}

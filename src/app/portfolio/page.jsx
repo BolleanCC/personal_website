@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import DemoAccounts from "@/components/DemoAccounts";
 
 const items = [
   {
@@ -13,6 +14,28 @@ const items = [
     img: "/school.jpg",
     link: "https://nextschoolmanagement.vercel.app/",
     github: "https://github.com/BolleanCC/next-school-management",
+    demoAccounts: [
+      {
+        role: "admin",
+        username: "admin",
+        password: "admin",
+      },
+      {
+        role: "teacher",
+        username: "teacher",
+        password: "teacher",
+      },
+      {
+        role: "student",
+        username: "student",
+        password: "Student-2025_demo",
+      },
+      {
+        role: "parent",
+        username: "parent",
+        password: "Parent-2025_demo",
+      },
+    ],
   },
   {
     id: 2,
@@ -70,6 +93,10 @@ const PortfolioItem = ({ item }) => {
         >
           {item.desc}
         </motion.p>
+        {/* Demo Accounts - Only show if available */}
+        {item.demoAccounts && isInView && (
+          <DemoAccounts accounts={item.demoAccounts} />
+        )}
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
@@ -152,7 +179,7 @@ const PortfolioPage = () => {
             </defs>
             <text fill="#000">
               <textPath xlinkHref="#circlePath" className="text-xl">
-                Front-end Developer and UI Designer
+                Web Developer and UI Designer
               </textPath>
             </text>
           </motion.svg>

@@ -73,16 +73,16 @@ const Navbar = () => {
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl">
       {/* LINKS */}
-      <div className="hidden md:flex md:gap-4 lg:gap-6 xl:gap-8 flex-1 md:max-w-[40%] lg:max-w-[35%]">
+      <div className="hidden md:flex md:gap-4 lg:gap-6 xl:gap-8 flex-1 md:max-w-[40%] lg:max-w-[32%] xl:max-w-[35%]">
         {links.map((link) => (
           <NavLink link={link} key={link.title} />
         ))}
       </div>
       {/* LOGO */}
-      <div className="md:hidden lg:flex lg:flex-1 lg:justify-center lg:mx-8 xl:mx-12">
+      <div className="md:hidden 2xl:flex 2xl:flex-1 2xl:justify-center 2xl:mx-12">
         <Link
           href="/"
-          className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
+          className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center whitespace-nowrap"
         >
           <span className="text-white mr-1">Songtao</span>
           <span className="w-12 h-8 rounded bg-white text-black flex items-center justify-center">
@@ -91,7 +91,7 @@ const Navbar = () => {
         </Link>
       </div>
       {/* SOCIAL */}
-      <div className="hidden md:flex md:gap-3 lg:gap-4 flex-1 md:justify-end md:max-w-[25%] lg:max-w-[20%]">
+      <div className="hidden md:flex md:gap-3 lg:gap-4 flex-1 md:justify-end md:max-w-[25%] lg:max-w-[18%] xl:max-w-[20%]">
         <Link href={SITE_CONFIG.github}>
           <Image src="/github.png" alt="" width={24} height={24} />
         </Link>
