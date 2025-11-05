@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import NavLink from "./navLink";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const links = [
@@ -123,34 +123,40 @@ const Navbar = () => {
           ></motion.div>
         </button>
         {/* MENU LIST */}
-        {open && (
-          <motion.div
-            variants={listVariants}
-            initial="closed"
-            animate="opened"
-            className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
-          >
-            {links.map((link) => (
-              <motion.div
-                variants={listItemVariants}
-                className=""
-                key={link.title}
-              >
-                {link.isExternal ? (
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.title}
-                  </a>
-                ) : (
-                  <Link href={link.url}>{link.title}</Link>
-                )}
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+        <AnimatePresence>
+          {open && (
+            <motion.div
+              variants={listVariants}
+              initial="closed"
+              animate="opened"
+              exit="closed"
+              className="absolute top-0 left-0 w-screen h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-4xl z-40"
+            >
+              {links.map((link) => (
+                <motion.div
+                  variants={listItemVariants}
+                  className=""
+                  key={link.title}
+                >
+                  {link.isExternal ? (
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.title}
+                    </a>
+                  ) : (
+                    <Link href={link.url} onClick={() => setOpen(false)}>
+                      {link.title}
+                    </Link>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
